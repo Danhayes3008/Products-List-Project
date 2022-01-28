@@ -46,7 +46,14 @@ namespace course1.Controllers
         {
             ProductsDAO products = new ProductsDAO();
             ProductModel foundProduct = products.GetProductById(id);
-            return View("ShowEditForm", foundProduct);
+            return View("ShowEdit", foundProduct);
+        }
+
+        public IActionResult ProcessEdit(ProductModel product)
+        {
+            ProductsDAO products = new ProductsDAO();
+            products.Update(product);
+            return View("index", products.GetAllProducts());
         }
 
         public IActionResult Details(int id)
