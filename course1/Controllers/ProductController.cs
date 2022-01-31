@@ -53,7 +53,7 @@ namespace course1.Controllers
         {
             ProductsDAO products = new ProductsDAO();
             products.Update(product);
-            return View("index", products.GetAllProducts());
+            return View("Index", products.GetAllProducts());
         }
 
         public IActionResult Details(int id)

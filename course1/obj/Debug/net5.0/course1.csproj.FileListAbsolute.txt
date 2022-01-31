@@ -128,4 +128,4 @@ C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\bin\Debug\net5
 C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\obj\Debug\net5.0\Razor\Views\Product\SearchForm.cshtml.g.cs
 C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\obj\Debug\net5.0\Razor\Views\Shared\_navbar.cshtml.g.cs
 C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
-C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+C:\Users\Danha\OneDrive\Desktop\coding\c#\lessons\course1\course1\obj\Debug\net5.0\Razor\Views\Product\ShowEdit.cshtml.g.cs
