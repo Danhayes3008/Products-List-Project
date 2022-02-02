@@ -109,14 +109,14 @@ namespace course1.Services
         {
             int newIdNumber = -1;
 
-            string sqlStatement = "UPDATE dbo.Products SET Name = @Name, Price = @Price, Description = @Description WHERE Id = @Id";
+            string sqlStatement = "UPDATE dbo.Products SET Name=@Name, Price=@Price, Description=@Description WHERE Id=@Id";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
                 command.Parameters.AddWithValue("@Name", product.Name);
                 command.Parameters.AddWithValue("@Price", product.Price);
                 command.Parameters.AddWithValue("@Description", product.Description);
-                command.Parameters.AddWithValue("@Id", product.Id);
+                command.Parameters.AddWithValue("@Id", product.ID);
                 try
                 {
                     connection.Open();
