@@ -42,6 +42,11 @@ namespace course1.Controllers
         {
             return View();
         }
+
+        public IActionResult CreateForm()
+        {
+            return View();
+        }
         public IActionResult Edit(int id)
         {
             ProductsDAO products = new ProductsDAO();
@@ -53,6 +58,14 @@ namespace course1.Controllers
         {
             ProductsDAO products = new ProductsDAO();
             products.Update(product);
+            return View("Index", products.GetAllProducts());
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            ProductsDAO products = new ProductsDAO();
+            ProductModel product = products.GetProductById(Id);
+            products.Delete(product);
             return View("Index", products.GetAllProducts());
         }
 
