@@ -17,7 +17,25 @@ namespace course1.Services
                                     MultiSubnetFailover=False";
         public int Delete(ProductModel product)
         {
-            throw new NotImplementedException();
+            int newIdNumber = -1;
+
+            string sqlStatement = "DELETE FROM dbo.Products WHERE Id=@Id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("@Id", product.ID);
+                try
+                {
+                    connection.Open();
+                    newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+                }
+            }
+            return newIdNumber;
         }
         // Gets the data from the SQL database
         public List<ProductModel> GetAllProducts()
@@ -75,13 +93,28 @@ namespace course1.Services
 
         public int Insert(ProductModel product)
         {
-            throw new NotImplementedException();
+            int newIdNumber = -1;
+            string sqlStatement = "INSERT INTO dbo.Products (Name, Price, Description) VALUES (@Name, @Price, @Description); SELECT SCOPE_IDENTITY()";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("@Name", product.Name);
+                command.Parameters.AddWithValue("@Price", product.Price);
+                command.Parameters.AddWithValue("@Description", product.Description);
+                connection.Open();
+                command.ExecuteNonQuery();
+                newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+               
+            }
+            return newIdNumber;
         }
 
         public List<ProductModel> SearchProducts(string searchTerm)
         {
-            List<ProductModel> foundProducts = new List<ProductModel>();
 
+            List<ProductModel> foundProducts = new List<ProductModel>();
             string sqlStatement = "SELECT * FROM dbo.Products WHERE Name LIKE @Name";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
