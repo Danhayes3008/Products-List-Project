@@ -15,6 +15,7 @@ namespace course1.Services
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Test Database;
                                     Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;
                                     MultiSubnetFailover=False";
+        // Function to delete an item from the database
         public int Delete(ProductModel product)
         {
             int newIdNumber = -1;
@@ -64,6 +65,7 @@ namespace course1.Services
             return foundProducts;
         }
 
+        // Fetches a single item from the database by its id number
         public ProductModel GetProductById(int id)
         {
             ProductModel foundProduct = null;
@@ -90,7 +92,8 @@ namespace course1.Services
             }
             return foundProduct;
         }
-
+        
+        // adds a new item to the database
         public int Insert(ProductModel product)
         {
             int newIdNumber = -1;
@@ -110,7 +113,8 @@ namespace course1.Services
             }
             return newIdNumber;
         }
-
+        
+        // a function that allows the user to search for a item in the database
         public List<ProductModel> SearchProducts(string searchTerm)
         {
 
@@ -137,7 +141,8 @@ namespace course1.Services
             }
             return foundProducts;
         }
-
+        
+        // a function to update a item in the data base
         public int Update(ProductModel product)
         {
             int newIdNumber = -1;
